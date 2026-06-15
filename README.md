@@ -7,6 +7,10 @@ This project delivers an end-to-end data solution combining **Big Data processin
 The objective is to analyze restaurant performance and predict factors that contribute to **high customer ratings (≥ 4.0)**, enabling data-driven decision-making in the food and hospitality domain.
 
 ---
+## 📸 Dashboard Preview
+
+<img width="1182" height="662" alt="image" src="https://github.com/user-attachments/assets/4ba87b5b-1cba-4746-97cd-71c9f2b76fc7" />
+---
 
 ## 🎯 Objectives
 
@@ -137,12 +141,6 @@ An interactive dashboard was developed to provide business insights.
 * Incorporate advanced models (XGBoost, Gradient Boosting)
 * Deploy as a web-based analytics application
 * Integrate real-time data pipelines
-
----
-
-## 📸 Dashboard Preview
-
-![Dashboard](zomato_dashboard.png)
 
 ---
 
