@@ -1,0 +1,695 @@
+{
+  "overview": {
+    "unique_restaurants": 9431,
+    "localities": 92,
+    "cuisines": 105,
+    "restaurant_types": 88,
+    "average_rating": 3.62,
+    "median_cost_for_two": 400.0,
+    "median_votes": 51.0,
+    "total_votes": 2247909,
+    "high_rated_share_pct": 22.34,
+    "online_order_share_pct": 61.51,
+    "table_booking_share_pct": 9.86
+  },
+  "top_localities_by_density": [
+    {
+      "location_name": "Whitefield",
+      "restaurant_count": 627,
+      "average_rating": 3.6,
+      "median_cost_for_two": 500.0,
+      "average_votes": 233.63,
+      "high_rated_share_pct": 20.41
+    },
+    {
+      "location_name": "Btm",
+      "restaurant_count": 535,
+      "average_rating": 3.56,
+      "median_cost_for_two": 350.0,
+      "average_votes": 131.13,
+      "high_rated_share_pct": 12.9
+    },
+    {
+      "location_name": "Hsr",
+      "restaurant_count": 524,
+      "average_rating": 3.64,
+      "median_cost_for_two": 400.0,
+      "average_votes": 216.42,
+      "high_rated_share_pct": 21.37
+    },
+    {
+      "location_name": "Marathahalli",
+      "restaurant_count": 510,
+      "average_rating": 3.52,
+      "median_cost_for_two": 400.0,
+      "average_votes": 264.41,
+      "high_rated_share_pct": 15.29
+    },
+    {
+      "location_name": "Electronic City",
+      "restaurant_count": 458,
+      "average_rating": 3.47,
+      "median_cost_for_two": 400.0,
+      "average_votes": 120.76,
+      "high_rated_share_pct": 10.26
+    },
+    {
+      "location_name": "Indiranagar",
+      "restaurant_count": 439,
+      "average_rating": 3.79,
+      "median_cost_for_two": 500.0,
+      "average_votes": 572.55,
+      "high_rated_share_pct": 41.69
+    },
+    {
+      "location_name": "Jp Nagar",
+      "restaurant_count": 388,
+      "average_rating": 3.63,
+      "median_cost_for_two": 400.0,
+      "average_votes": 228.65,
+      "high_rated_share_pct": 23.2
+    },
+    {
+      "location_name": "Bannerghatta Road",
+      "restaurant_count": 355,
+      "average_rating": 3.47,
+      "median_cost_for_two": 400.0,
+      "average_votes": 146.57,
+      "high_rated_share_pct": 10.99
+    },
+    {
+      "location_name": "Jayanagar",
+      "restaurant_count": 312,
+      "average_rating": 3.77,
+      "median_cost_for_two": 400.0,
+      "average_votes": 274.77,
+      "high_rated_share_pct": 32.37
+    },
+    {
+      "location_name": "Bellandur",
+      "restaurant_count": 272,
+      "average_rating": 3.49,
+      "median_cost_for_two": 400.0,
+      "average_votes": 140.2,
+      "high_rated_share_pct": 15.44
+    },
+    {
+      "location_name": "Sarjapur Road",
+      "restaurant_count": 259,
+      "average_rating": 3.6,
+      "median_cost_for_two": 400.0,
+      "average_votes": 252.01,
+      "high_rated_share_pct": 16.99
+    },
+    {
+      "location_name": "Koramangala 5Th Block",
+      "restaurant_count": 241,
+      "average_rating": 3.91,
+      "median_cost_for_two": 500.0,
+      "average_votes": 732.09,
+      "high_rated_share_pct": 50.62
+    },
+    {
+      "location_name": "Banashankari",
+      "restaurant_count": 228,
+      "average_rating": 3.62,
+      "median_cost_for_two": 325.0,
+      "average_votes": 170.92,
+      "high_rated_share_pct": 17.11
+    },
+    {
+      "location_name": "New Bel Road",
+      "restaurant_count": 220,
+      "average_rating": 3.64,
+      "median_cost_for_two": 400.0,
+      "average_votes": 237.57,
+      "high_rated_share_pct": 25.45
+    },
+    {
+      "location_name": "Malleshwaram",
+      "restaurant_count": 204,
+      "average_rating": 3.73,
+      "median_cost_for_two": 400.0,
+      "average_votes": 300.83,
+      "high_rated_share_pct": 36.76
+    }
+  ],
+  "top_localities_by_rating_min50": [
+    {
+      "location_name": "Lavelle Road",
+      "restaurant_count": 51,
+      "average_rating": 4.07,
+      "high_rated_share_pct": 68.63,
+      "average_votes": 827.41
+    },
+    {
+      "location_name": "Koramangala 5Th Block",
+      "restaurant_count": 241,
+      "average_rating": 3.91,
+      "high_rated_share_pct": 50.62,
+      "average_votes": 732.09
+    },
+    {
+      "location_name": "Church Street",
+      "restaurant_count": 55,
+      "average_rating": 3.89,
+      "high_rated_share_pct": 58.18,
+      "average_votes": 877.53
+    },
+    {
+      "location_name": "Koramangala 4Th Block",
+      "restaurant_count": 102,
+      "average_rating": 3.84,
+      "high_rated_share_pct": 45.1,
+      "average_votes": 593.48
+    },
+    {
+      "location_name": "Residency Road",
+      "restaurant_count": 72,
+      "average_rating": 3.83,
+      "high_rated_share_pct": 50.0,
+      "average_votes": 393.42
+    },
+    {
+      "location_name": "Richmond Road",
+      "restaurant_count": 63,
+      "average_rating": 3.83,
+      "high_rated_share_pct": 44.44,
+      "average_votes": 202.54
+    },
+    {
+      "location_name": "Mg Road",
+      "restaurant_count": 80,
+      "average_rating": 3.81,
+      "high_rated_share_pct": 43.75,
+      "average_votes": 428.44
+    },
+    {
+      "location_name": "Indiranagar",
+      "restaurant_count": 439,
+      "average_rating": 3.79,
+      "high_rated_share_pct": 41.69,
+      "average_votes": 572.55
+    },
+    {
+      "location_name": "Jayanagar",
+      "restaurant_count": 312,
+      "average_rating": 3.77,
+      "high_rated_share_pct": 32.37,
+      "average_votes": 274.77
+    },
+    {
+      "location_name": "Koramangala 7Th Block",
+      "restaurant_count": 128,
+      "average_rating": 3.76,
+      "high_rated_share_pct": 30.47,
+      "average_votes": 347.66
+    },
+    {
+      "location_name": "Kalyan Nagar",
+      "restaurant_count": 192,
+      "average_rating": 3.73,
+      "high_rated_share_pct": 31.25,
+      "average_votes": 212.6
+    },
+    {
+      "location_name": "Koramangala 6Th Block",
+      "restaurant_count": 134,
+      "average_rating": 3.73,
+      "high_rated_share_pct": 35.82,
+      "average_votes": 335.66
+    },
+    {
+      "location_name": "Malleshwaram",
+      "restaurant_count": 204,
+      "average_rating": 3.73,
+      "high_rated_share_pct": 36.76,
+      "average_votes": 300.83
+    },
+    {
+      "location_name": "Ulsoor",
+      "restaurant_count": 90,
+      "average_rating": 3.69,
+      "high_rated_share_pct": 30.0,
+      "average_votes": 174.29
+    },
+    {
+      "location_name": "Basavanagudi",
+      "restaurant_count": 180,
+      "average_rating": 3.67,
+      "high_rated_share_pct": 21.11,
+      "average_votes": 184.91
+    }
+  ],
+  "top_cuisines_by_density": [
+    {
+      "cuisine_name": "North Indian",
+      "restaurant_count": 3940,
+      "average_rating": 3.57,
+      "high_rated_share_pct": 18.48
+    },
+    {
+      "cuisine_name": "Chinese",
+      "restaurant_count": 2915,
+      "average_rating": 3.54,
+      "high_rated_share_pct": 15.64
+    },
+    {
+      "cuisine_name": "Fast Food",
+      "restaurant_count": 1672,
+      "average_rating": 3.56,
+      "high_rated_share_pct": 15.31
+    },
+    {
+      "cuisine_name": "South Indian",
+      "restaurant_count": 1670,
+      "average_rating": 3.57,
+      "high_rated_share_pct": 15.03
+    },
+    {
+      "cuisine_name": "Biryani",
+      "restaurant_count": 1317,
+      "average_rating": 3.51,
+      "high_rated_share_pct": 12.83
+    },
+    {
+      "cuisine_name": "Desserts",
+      "restaurant_count": 1010,
+      "average_rating": 3.79,
+      "high_rated_share_pct": 34.65
+    },
+    {
+      "cuisine_name": "Beverages",
+      "restaurant_count": 896,
+      "average_rating": 3.73,
+      "high_rated_share_pct": 28.79
+    },
+    {
+      "cuisine_name": "Continental",
+      "restaurant_count": 825,
+      "average_rating": 3.89,
+      "high_rated_share_pct": 47.88
+    },
+    {
+      "cuisine_name": "Cafe",
+      "restaurant_count": 668,
+      "average_rating": 3.8,
+      "high_rated_share_pct": 41.62
+    },
+    {
+      "cuisine_name": "Street Food",
+      "restaurant_count": 624,
+      "average_rating": 3.59,
+      "high_rated_share_pct": 19.55
+    },
+    {
+      "cuisine_name": "Italian",
+      "restaurant_count": 515,
+      "average_rating": 3.87,
+      "high_rated_share_pct": 51.84
+    },
+    {
+      "cuisine_name": "Bakery",
+      "restaurant_count": 499,
+      "average_rating": 3.62,
+      "high_rated_share_pct": 19.24
+    },
+    {
+      "cuisine_name": "Pizza",
+      "restaurant_count": 402,
+      "average_rating": 3.73,
+      "high_rated_share_pct": 40.3
+    },
+    {
+      "cuisine_name": "Andhra",
+      "restaurant_count": 394,
+      "average_rating": 3.54,
+      "high_rated_share_pct": 14.21
+    },
+    {
+      "cuisine_name": "Ice Cream",
+      "restaurant_count": 384,
+      "average_rating": 3.78,
+      "high_rated_share_pct": 30.99
+    }
+  ],
+  "top_cuisines_by_rating_min30": [
+    {
+      "cuisine_name": "Japanese",
+      "restaurant_count": 45,
+      "average_rating": 4.21,
+      "average_votes": 873.58,
+      "high_rated_share_pct": 86.67
+    },
+    {
+      "cuisine_name": "Mediterranean",
+      "restaurant_count": 87,
+      "average_rating": 4.2,
+      "average_votes": 1593.37,
+      "high_rated_share_pct": 77.01
+    },
+    {
+      "cuisine_name": "European",
+      "restaurant_count": 103,
+      "average_rating": 4.17,
+      "average_votes": 1474.9,
+      "high_rated_share_pct": 79.61
+    },
+    {
+      "cuisine_name": "Asian",
+      "restaurant_count": 197,
+      "average_rating": 4.07,
+      "average_votes": 823.5,
+      "high_rated_share_pct": 69.04
+    },
+    {
+      "cuisine_name": "Steak",
+      "restaurant_count": 73,
+      "average_rating": 4.04,
+      "average_votes": 1318.89,
+      "high_rated_share_pct": 69.86
+    },
+    {
+      "cuisine_name": "Bbq",
+      "restaurant_count": 128,
+      "average_rating": 4.0,
+      "average_votes": 1296.58,
+      "high_rated_share_pct": 53.12
+    },
+    {
+      "cuisine_name": "Vietnamese",
+      "restaurant_count": 32,
+      "average_rating": 3.96,
+      "average_votes": 666.53,
+      "high_rated_share_pct": 65.62
+    },
+    {
+      "cuisine_name": "American",
+      "restaurant_count": 200,
+      "average_rating": 3.95,
+      "average_votes": 1219.48,
+      "high_rated_share_pct": 58.0
+    },
+    {
+      "cuisine_name": "Finger Food",
+      "restaurant_count": 160,
+      "average_rating": 3.94,
+      "average_votes": 830.14,
+      "high_rated_share_pct": 55.0
+    },
+    {
+      "cuisine_name": "Mexican",
+      "restaurant_count": 102,
+      "average_rating": 3.93,
+      "average_votes": 530.73,
+      "high_rated_share_pct": 60.78
+    },
+    {
+      "cuisine_name": "Salad",
+      "restaurant_count": 183,
+      "average_rating": 3.91,
+      "average_votes": 770.33,
+      "high_rated_share_pct": 54.64
+    },
+    {
+      "cuisine_name": "Continental",
+      "restaurant_count": 825,
+      "average_rating": 3.89,
+      "average_votes": 634.31,
+      "high_rated_share_pct": 47.88
+    },
+    {
+      "cuisine_name": "Rajasthani",
+      "restaurant_count": 33,
+      "average_rating": 3.89,
+      "average_votes": 534.36,
+      "high_rated_share_pct": 42.42
+    },
+    {
+      "cuisine_name": "Italian",
+      "restaurant_count": 515,
+      "average_rating": 3.87,
+      "average_votes": 672.43,
+      "high_rated_share_pct": 51.84
+    },
+    {
+      "cuisine_name": "Thai",
+      "restaurant_count": 187,
+      "average_rating": 3.85,
+      "average_votes": 515.36,
+      "high_rated_share_pct": 45.45
+    }
+  ],
+  "top5_cuisine_share_pct": 71.6,
+  "top5_cuisines": [
+    "North Indian",
+    "Chinese",
+    "Fast Food",
+    "South Indian",
+    "Biryani"
+  ],
+  "top5_cuisine_restaurants": 6753,
+  "price_bands": [
+    {
+      "price_band": "Budget",
+      "restaurant_count": 3624,
+      "share_pct": 38.43,
+      "average_rating": 3.54,
+      "average_votes": 70.07,
+      "high_rated_share_pct": 11.51,
+      "table_booking_share_pct": 0.22,
+      "online_order_share_pct": 57.89
+    },
+    {
+      "price_band": "Mid-range",
+      "restaurant_count": 4224,
+      "share_pct": 44.79,
+      "average_rating": 3.58,
+      "average_votes": 192.4,
+      "high_rated_share_pct": 19.44,
+      "table_booking_share_pct": 3.22,
+      "online_order_share_pct": 70.22
+    },
+    {
+      "price_band": "Premium",
+      "restaurant_count": 1583,
+      "share_pct": 16.79,
+      "average_rating": 3.93,
+      "average_votes": 746.23,
+      "high_rated_share_pct": 54.9,
+      "table_booking_share_pct": 49.65,
+      "online_order_share_pct": 46.56
+    }
+  ],
+  "service_combinations": [
+    {
+      "service_combo": "No online + Booking",
+      "restaurant_count": 442,
+      "share_pct": 4.69,
+      "average_rating": 4.15,
+      "average_votes": 1008.72,
+      "high_rated_share_pct": 77.6
+    },
+    {
+      "service_combo": "Online + Booking",
+      "restaurant_count": 488,
+      "share_pct": 5.17,
+      "average_rating": 4.08,
+      "average_votes": 1009.0,
+      "high_rated_share_pct": 71.11
+    },
+    {
+      "service_combo": "Online + No booking",
+      "restaurant_count": 5313,
+      "share_pct": 56.34,
+      "average_rating": 3.61,
+      "average_votes": 170.54,
+      "high_rated_share_pct": 18.61
+    },
+    {
+      "service_combo": "No online + No booking",
+      "restaurant_count": 3188,
+      "share_pct": 33.8,
+      "average_rating": 3.51,
+      "average_votes": 126.59,
+      "high_rated_share_pct": 13.43
+    }
+  ],
+  "spearman_correlations": {
+    "rating_vs_cost": 0.28,
+    "rating_vs_votes": 0.63,
+    "cost_vs_votes": 0.45
+  },
+  "opportunity_segments_total": 4878,
+  "opportunity_segments_scored": 1207,
+  "top_opportunity_segments": [
+    {
+      "location_name": "Church Street",
+      "cuisine_name": "Chinese",
+      "price_band": "Premium",
+      "restaurant_count": 5,
+      "average_rating": 4.11,
+      "average_votes_per_restaurant": 3143.05,
+      "opportunity_score": 94.7,
+      "opportunity_tier": "Shortlist"
+    },
+    {
+      "location_name": "Whitefield",
+      "cuisine_name": "Burger",
+      "price_band": "Premium",
+      "restaurant_count": 5,
+      "average_rating": 4.35,
+      "average_votes_per_restaurant": 958.42,
+      "opportunity_score": 92.6,
+      "opportunity_tier": "Shortlist"
+    },
+    {
+      "location_name": "Sarjapur Road",
+      "cuisine_name": "Asian",
+      "price_band": "Premium",
+      "restaurant_count": 5,
+      "average_rating": 4.31,
+      "average_votes_per_restaurant": 1560.02,
+      "opportunity_score": 92.2,
+      "opportunity_tier": "Shortlist"
+    },
+    {
+      "location_name": "Bannerghatta Road",
+      "cuisine_name": "Pizza",
+      "price_band": "Premium",
+      "restaurant_count": 5,
+      "average_rating": 4.03,
+      "average_votes_per_restaurant": 1428.08,
+      "opportunity_score": 92.0,
+      "opportunity_tier": "Shortlist"
+    },
+    {
+      "location_name": "Sarjapur Road",
+      "cuisine_name": "Finger Food",
+      "price_band": "Premium",
+      "restaurant_count": 5,
+      "average_rating": 4.44,
+      "average_votes_per_restaurant": 4098.68,
+      "opportunity_score": 91.8,
+      "opportunity_tier": "Shortlist"
+    },
+    {
+      "location_name": "Koramangala 5Th Block",
+      "cuisine_name": "Burger",
+      "price_band": "Mid-range",
+      "restaurant_count": 6,
+      "average_rating": 4.19,
+      "average_votes_per_restaurant": 1643.98,
+      "opportunity_score": 91.5,
+      "opportunity_tier": "Shortlist"
+    },
+    {
+      "location_name": "Sarjapur Road",
+      "cuisine_name": "South Indian",
+      "price_band": "Premium",
+      "restaurant_count": 6,
+      "average_rating": 4.25,
+      "average_votes_per_restaurant": 3655.45,
+      "opportunity_score": 90.9,
+      "opportunity_tier": "Shortlist"
+    },
+    {
+      "location_name": "Koramangala 3Rd Block",
+      "cuisine_name": "Cafe",
+      "price_band": "Premium",
+      "restaurant_count": 5,
+      "average_rating": 4.23,
+      "average_votes_per_restaurant": 1151.61,
+      "opportunity_score": 90.7,
+      "opportunity_tier": "Shortlist"
+    },
+    {
+      "location_name": "Koramangala 5Th Block",
+      "cuisine_name": "Salad",
+      "price_band": "Premium",
+      "restaurant_count": 6,
+      "average_rating": 4.27,
+      "average_votes_per_restaurant": 1525.23,
+      "opportunity_score": 89.7,
+      "opportunity_tier": "Shortlist"
+    },
+    {
+      "location_name": "Whitefield",
+      "cuisine_name": "Momos",
+      "price_band": "Premium",
+      "restaurant_count": 6,
+      "average_rating": 4.36,
+      "average_votes_per_restaurant": 1731.79,
+      "opportunity_score": 89.3,
+      "opportunity_tier": "Shortlist"
+    },
+    {
+      "location_name": "New Bel Road",
+      "cuisine_name": "Burger",
+      "price_band": "Mid-range",
+      "restaurant_count": 5,
+      "average_rating": 4.06,
+      "average_votes_per_restaurant": 788.56,
+      "opportunity_score": 88.8,
+      "opportunity_tier": "Shortlist"
+    },
+    {
+      "location_name": "Koramangala 5Th Block",
+      "cuisine_name": "Street Food",
+      "price_band": "Mid-range",
+      "restaurant_count": 5,
+      "average_rating": 4.11,
+      "average_votes_per_restaurant": 592.6,
+      "opportunity_score": 88.6,
+      "opportunity_tier": "Shortlist"
+    },
+    {
+      "location_name": "Indiranagar",
+      "cuisine_name": "Bbq",
+      "price_band": "Premium",
+      "restaurant_count": 5,
+      "average_rating": 4.26,
+      "average_votes_per_restaurant": 2828.79,
+      "opportunity_score": 88.4,
+      "opportunity_tier": "Shortlist"
+    },
+    {
+      "location_name": "Koramangala 1St Block",
+      "cuisine_name": "North Indian",
+      "price_band": "Premium",
+      "restaurant_count": 5,
+      "average_rating": 4.28,
+      "average_votes_per_restaurant": 1594.49,
+      "opportunity_score": 88.2,
+      "opportunity_tier": "Shortlist"
+    },
+    {
+      "location_name": "Koramangala 7Th Block",
+      "cuisine_name": "Continental",
+      "price_band": "Mid-range",
+      "restaurant_count": 5,
+      "average_rating": 4.17,
+      "average_votes_per_restaurant": 498.11,
+      "opportunity_score": 88.1,
+      "opportunity_tier": "Shortlist"
+    }
+  ],
+  "opportunity_tier_counts": {
+    "Explore": 634,
+    "Promising": 346,
+    "High priority": 200,
+    "Shortlist": 27
+  },
+  "top_shortlist_localities": {
+    "Indiranagar": 28,
+    "Koramangala 5Th Block": 19,
+    "Whitefield": 15,
+    "Sarjapur Road": 13,
+    "Hsr": 13,
+    "Koramangala 4Th Block": 12,
+    "Jayanagar": 10,
+    "Marathahalli": 9,
+    "New Bel Road": 9,
+    "Bannerghatta Road": 8
+  }
+}

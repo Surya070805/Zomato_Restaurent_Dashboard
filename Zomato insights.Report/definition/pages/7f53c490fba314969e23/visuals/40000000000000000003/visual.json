@@ -1,0 +1,46 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "40000000000000000003",
+  "position": {
+    "x": 20,
+    "y": 1018,
+    "z": 10,
+    "height": 46,
+    "width": 1880,
+    "tabOrder": 16
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Scoring Formula: ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontFamily": "Segoe UI Semibold",
+                      "fontSize": "10.5pt",
+                      "color": "#1E3A8A"
+                    }
+                  },
+                  {
+                    "value": "40% Demand Proxy + 25% Observed Quality + 25% Whitespace + 10% Service Fit.   |   Minimum sample: 5 restaurants.",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "10.5pt",
+                      "color": "#334155"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

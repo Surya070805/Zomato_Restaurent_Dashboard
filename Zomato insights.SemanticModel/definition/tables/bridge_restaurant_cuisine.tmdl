@@ -1,0 +1,32 @@
+table bridge_restaurant_cuisine
+	lineageTag: d227d7ec-5dc3-4de5-a8bc-f29776fc6419
+
+	column restaurant_key
+		dataType: string
+		isHidden
+		lineageTag: d42cb07d-4e60-470d-bba4-ebb51d958802
+		summarizeBy: none
+		sourceColumn: restaurant_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column cuisine_key
+		dataType: string
+		isHidden
+		lineageTag: 34835de8-ba43-4363-8422-faebd64e237f
+		summarizeBy: none
+		sourceColumn: cuisine_key
+
+		annotation SummarizationSetBy = Automatic
+
+	partition bridge_restaurant_cuisine = m
+		mode: import
+		source =
+				let
+				  Source = Csv.Document(File.Contents("C:\Users\23f20\Downloads\Zomato_Restaurent_Dashboard-main\Zomato_Restaurent_Dashboard-main\data\gold\bridge_restaurant_cuisine.csv"), [Delimiter = ",", Columns = 2, QuoteStyle = QuoteStyle.None]),
+				  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true])
+				in
+				  #"Promoted headers"
+
+	annotation PBI_ResultType = Table
+

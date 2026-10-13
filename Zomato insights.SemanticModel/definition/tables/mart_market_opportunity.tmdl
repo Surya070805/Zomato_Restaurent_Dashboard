@@ -1,0 +1,137 @@
+table mart_market_opportunity
+	lineageTag: d38bbffc-87c5-4f52-b1a6-7e3a9998c0a9
+
+	column location_name
+		dataType: string
+		lineageTag: c84d222d-42dd-45fd-ac38-a28fe8e81112
+		summarizeBy: none
+		sourceColumn: location_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column cuisine_name
+		dataType: string
+		lineageTag: b59c80d9-2338-4b9c-8f65-c827d70513d4
+		summarizeBy: none
+		sourceColumn: cuisine_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column price_band
+		dataType: string
+		lineageTag: af485a30-38da-41a4-b1a7-bb795b8c4429
+		summarizeBy: none
+		sourceColumn: price_band
+
+		annotation SummarizationSetBy = Automatic
+
+	column restaurant_count
+		dataType: int64
+		formatString: 0
+		lineageTag: 211363d5-553e-4c24-8eeb-651e13a85951
+		summarizeBy: sum
+		sourceColumn: restaurant_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column average_rating
+		dataType: double
+		lineageTag: c18c840f-598d-440f-9b8b-1fc33eaeed36
+		summarizeBy: sum
+		sourceColumn: average_rating
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column average_cost_for_two
+		dataType: double
+		lineageTag: 74fb06f9-ba18-4a85-889a-7f6728e089e5
+		summarizeBy: sum
+		sourceColumn: average_cost_for_two
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column average_votes_per_restaurant
+		dataType: double
+		lineageTag: f8b68666-131b-4e90-b376-2e1ebed4c055
+		summarizeBy: sum
+		sourceColumn: average_votes_per_restaurant
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column online_order_rate_pct
+		dataType: int64
+		formatString: 0
+		lineageTag: 5f4b1fd0-2325-48a0-80c8-f4adf1dd1707
+		summarizeBy: sum
+		sourceColumn: online_order_rate_pct
+
+		annotation SummarizationSetBy = Automatic
+
+	column table_booking_rate_pct
+		dataType: int64
+		formatString: 0
+		lineageTag: ce93524a-c345-4de3-be05-9d659e1d1a76
+		summarizeBy: sum
+		sourceColumn: table_booking_rate_pct
+
+		annotation SummarizationSetBy = Automatic
+
+	column trusted_high_rated_share_pct
+		dataType: int64
+		formatString: 0
+		lineageTag: be1cc5e1-9d98-47cc-bfc7-8af0a4eea42c
+		summarizeBy: sum
+		sourceColumn: trusted_high_rated_share_pct
+
+		annotation SummarizationSetBy = Automatic
+
+	column opportunity_score
+		dataType: double
+		lineageTag: a2e68736-c46e-4c04-90b3-e5578668930c
+		summarizeBy: sum
+		sourceColumn: opportunity_score
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column opportunity_tier
+		dataType: string
+		lineageTag: 25cdd9bc-49fc-4ee7-a5eb-73e638510f49
+		summarizeBy: none
+		sourceColumn: opportunity_tier
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tier Sort Order' =
+			SWITCH (
+			    mart_market_opportunity[opportunity_tier],
+			    "Shortlist", 1,
+			    "High", 2,
+			    "Moderate", 3,
+			    "Low", 4,
+			    5
+			)
+		dataType: int64
+		formatString: 0
+		lineageTag: a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d
+		summarizeBy: sum
+
+	partition mart_market_opportunity = m
+		mode: import
+		source =
+				let
+				  Source = Csv.Document(File.Contents("C:\Users\23f20\Downloads\Zomato_Restaurent_Dashboard-main\Zomato_Restaurent_Dashboard-main\data\gold\mart_market_opportunity.csv"), [Delimiter = ",", Columns = 12, QuoteStyle = QuoteStyle.None]),
+				  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"location_name", type text}, {"cuisine_name", type text}, {"price_band", type text}, {"restaurant_count", Int64.Type}, {"average_rating", type number}, {"average_cost_for_two", type number}, {"average_votes_per_restaurant", type number}, {"online_order_rate_pct", Int64.Type}, {"table_booking_rate_pct", Int64.Type}, {"trusted_high_rated_share_pct", Int64.Type}, {"opportunity_score", type number}, {"opportunity_tier", type text}}, "en-US")
+				in
+				  #"Changed column type"
+
+	annotation PBI_ResultType = Table
+

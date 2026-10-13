@@ -1,0 +1,31 @@
+table dim_cuisine
+	lineageTag: 7b31f70e-f001-4d11-88aa-e110cfdef9b9
+
+	column cuisine_key
+		dataType: string
+		isHidden
+		lineageTag: 0d7f3f15-d669-4add-a735-b4d46ce9f60e
+		summarizeBy: none
+		sourceColumn: cuisine_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column cuisine_name
+		dataType: string
+		lineageTag: edc141c4-fc36-4e91-a53e-e5697aaea458
+		summarizeBy: none
+		sourceColumn: cuisine_name
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_cuisine = m
+		mode: import
+		source =
+				let
+				  Source = Csv.Document(File.Contents("C:\Users\23f20\Downloads\Zomato_Restaurent_Dashboard-main\Zomato_Restaurent_Dashboard-main\data\gold\dim_cuisine.csv"), [Delimiter = ",", Columns = 2, QuoteStyle = QuoteStyle.None]),
+				  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true])
+				in
+				  #"Promoted headers"
+
+	annotation PBI_ResultType = Table
+

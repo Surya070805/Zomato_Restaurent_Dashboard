@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Zomato insights"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "1b6a8e6f-4c27-429e-9799-d67cbd057da1"
+  }
+}

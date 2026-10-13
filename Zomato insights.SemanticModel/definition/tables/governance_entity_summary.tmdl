@@ -1,0 +1,70 @@
+table governance_entity_summary
+	lineageTag: a7b8c9d0-1234-5678-90ab-cdef01234567
+
+	column 'Table Name'
+		dataType: string
+		lineageTag: a1b2c3d4-e5f6-7890-abcd-ef0123456789
+		summarizeBy: none
+		sourceColumn: [Value1]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		lineageTag: b2c3d4e5-f6a7-8901-bcde-f0123456789a
+		summarizeBy: none
+		sourceColumn: [Value2]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Row Count'
+		dataType: int64
+		formatString: #,##0
+		lineageTag: c3d4e5f6-a7b8-9012-cdef-0123456789ab
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Column Count'
+		dataType: int64
+		formatString: 0
+		lineageTag: d4e5f6a7-b8c9-0123-def0-123456789abc
+		summarizeBy: sum
+		sourceColumn: [Value4]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Memory Footprint'
+		dataType: string
+		lineageTag: e5f6a7b8-c9d0-1234-ef01-23456789abcd
+		summarizeBy: none
+		sourceColumn: [Value5]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sort Order'
+		dataType: int64
+		formatString: 0
+		lineageTag: f6a7b8c9-d0e1-2345-f012-3456789abcde
+		summarizeBy: sum
+		sourceColumn: [Value6]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition governance_entity_summary = calculated
+		mode: import
+		source =
+				{
+				    ("dim_restaurant", "Unique restaurant information", 9431, 18, "2.3 MB", 1),
+				    ("dim_location", "Locality and area details", 92, 8, "0.1 MB", 2),
+				    ("dim_cuisine", "Cuisine category mapping", 105, 6, "0.1 MB", 3),
+				    ("dim_price_band", "Price band classification", 3, 5, "< 0.1 MB", 4),
+				    ("dim_service", "Online delivery and booking flags", 4, 6, "< 0.1 MB", 5),
+				    ("bridge_restaurant_cuisine", "Restaurant-cuisine mapping", 25627, 4, "1.8 MB", 6),
+				    ("fact_restaurant_listing", "Listing-Category level fact table", 41357, 15, "6.4 MB", 7),
+				    ("mart_analysis", "Aggregated analysis table", 9431, 22, "3.1 MB", 8)
+				}
+
+	annotation PBI_Id = 751a0ef324ef4e93b2e4d79ba01234ef
+

@@ -1,0 +1,9 @@
+{
+  "source_rows": 41418,
+  "valid_listing_rows": 41418,
+  "unique_restaurants": 9431,
+  "fact_rows": 41357,
+  "cuisines": 105,
+  "market_segments": 4878,
+  "scored_market_segments": 1207
+}

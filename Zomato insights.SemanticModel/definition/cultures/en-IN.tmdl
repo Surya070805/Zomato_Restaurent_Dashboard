@@ -1,0 +1,811 @@
+cultureInfo en-IN
+
+	linguisticMetadata =
+			{
+			  "Version": "4.1.0",
+			  "Language": "en-US",
+			  "Entities": {
+			    "cuisine_stat": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Cuisine_Stats"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cuisine stat": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Cuisine_Stats": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "stat": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "cuisine_stat.cuisine": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Cuisine_Stats",
+			          "ConceptualProperty": "cuisines"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cuisine": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "gastronomy": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "cooking": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "cookery": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "food": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "fare": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        }
+			      ]
+			    },
+			    "cuisine_stat.location": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Cuisine_Stats",
+			          "ConceptualProperty": "location"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "location": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "locality": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "placement": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "scene": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "venue": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "address": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "place": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "position": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "setting": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "site": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "spot": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        }
+			      ]
+			    },
+			    "cuisine_stat.total_vote": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Cuisine_Stats",
+			          "ConceptualProperty": "Total Votes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "total vote": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "aggregate vote": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "overall vote": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "total division": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "total ballot": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "total election": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "total poll": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        }
+			      ]
+			    },
+			    "cuisine_stat.avg_rating": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Cuisine_Stats",
+			          "ConceptualProperty": "Avg Rating"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "avg rating": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "average rating": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "avg assessment": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "avg evaluation": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "avg score": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "avg grade": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "avg ranking": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "avg mark": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "avg sailor": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        },
+			        {
+			          "avg seaman": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        },
+			        {
+			          "avg hand": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.461
+			          }
+			        }
+			      ]
+			    },
+			    "cuisine_stat.restaurant_count": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Cuisine_Stats",
+			          "ConceptualProperty": "Restaurant count"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "restaurant count": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "restaurant amount": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        }
+			      ]
+			    },
+			    "cuisine_stat.popularity_score": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Cuisine_Stats",
+			          "ConceptualProperty": "Popularity Score"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "popularity score": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "score": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "popularity notch": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "popularity slash": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "popularity groove": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "popularity nick": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "popularity cut": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "popularity mark": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "notch": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "slash": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "groove": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "nick": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        }
+			      ]
+			    }
+			  },
+			  "Relationships": {
+			    "cuisine_stat_has_popularity_score": {
+			      "Binding": {
+			        "ConceptualEntity": "Cuisine_Stats"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "cuisine_stat": {
+			          "Target": {
+			            "Entity": "cuisine_stat"
+			          }
+			        },
+			        "cuisine_stat.popularity_score": {
+			          "Target": {
+			            "Entity": "cuisine_stat.popularity_score"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "cuisine_stat"
+			            },
+			            "Object": {
+			              "Role": "cuisine_stat.popularity_score"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "cuisine_stats_have_popularity_scores"
+			        }
+			      ]
+			    },
+			    "cuisine_stat_has_restaurant_count": {
+			      "Binding": {
+			        "ConceptualEntity": "Cuisine_Stats"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "cuisine_stat": {
+			          "Target": {
+			            "Entity": "cuisine_stat"
+			          }
+			        },
+			        "cuisine_stat.restaurant_count": {
+			          "Target": {
+			            "Entity": "cuisine_stat.restaurant_count"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "cuisine_stat"
+			            },
+			            "Object": {
+			              "Role": "cuisine_stat.restaurant_count"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "cuisine_stats_have_restaurant_counts"
+			        }
+			      ]
+			    },
+			    "cuisine_stat_has_avg_rating": {
+			      "Binding": {
+			        "ConceptualEntity": "Cuisine_Stats"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "cuisine_stat": {
+			          "Target": {
+			            "Entity": "cuisine_stat"
+			          }
+			        },
+			        "cuisine_stat.avg_rating": {
+			          "Target": {
+			            "Entity": "cuisine_stat.avg_rating"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "cuisine_stat"
+			            },
+			            "Object": {
+			              "Role": "cuisine_stat.avg_rating"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "cuisine_stats_have_avg_rating"
+			        }
+			      ]
+			    },
+			    "cuisine_stat_has_total_vote": {
+			      "Binding": {
+			        "ConceptualEntity": "Cuisine_Stats"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "cuisine_stat": {
+			          "Target": {
+			            "Entity": "cuisine_stat"
+			          }
+			        },
+			        "cuisine_stat.total_vote": {
+			          "Target": {
+			            "Entity": "cuisine_stat.total_vote"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "cuisine_stat"
+			            },
+			            "Object": {
+			              "Role": "cuisine_stat.total_vote"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "cuisine_stats_have_total_votes"
+			        }
+			      ]
+			    },
+			    "cuisine_stat_has_location": {
+			      "Binding": {
+			        "ConceptualEntity": "Cuisine_Stats"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "cuisine_stat": {
+			          "Target": {
+			            "Entity": "cuisine_stat"
+			          }
+			        },
+			        "cuisine_stat.location": {
+			          "Target": {
+			            "Entity": "cuisine_stat.location"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "cuisine_stat"
+			            },
+			            "Object": {
+			              "Role": "cuisine_stat.location"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "cuisine_stats_have_locations"
+			        }
+			      ]
+			    },
+			    "cuisine_stat_has_cuisine": {
+			      "Binding": {
+			        "ConceptualEntity": "Cuisine_Stats"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "cuisine_stat": {
+			          "Target": {
+			            "Entity": "cuisine_stat"
+			          }
+			        },
+			        "cuisine_stat.cuisine": {
+			          "Target": {
+			            "Entity": "cuisine_stat.cuisine"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "cuisine_stat"
+			            },
+			            "Object": {
+			              "Role": "cuisine_stat.cuisine"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "cuisine_stats_have_cuisines"
+			        }
+			      ]
+			    },
+			    "cuisine_stat_in_location": {
+			      "Binding": {
+			        "ConceptualEntity": "Cuisine_Stats"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "cuisine_stat": {
+			          "Target": {
+			            "Entity": "cuisine_stat"
+			          }
+			        },
+			        "cuisine_stat.location": {
+			          "Target": {
+			            "Entity": "cuisine_stat.location"
+			          }
+			        }
+			      },
+			      "SemanticSlots": {
+			        "Where": {
+			          "Role": "cuisine_stat.location"
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "cuisine_stat"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "cuisine_stat.location"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "cuisine_stats_are_in_locations"
+			        }
+			      ]
+			    }
+			  },
+			  "Agents": {
+			    "Internal": {
+			      "Version": "1.1.0"
+			    }
+			  }
+			}
+		contentType: json
+

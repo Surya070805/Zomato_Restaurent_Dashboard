@@ -1,0 +1,26 @@
+table 'Min Restaurants Parameter'
+	lineageTag: 1381ee30-eba3-480d-86f3-3d2f2ec3d421
+
+	measure 'Min Restaurants Parameter Value' = SELECTEDVALUE('Min Restaurants Parameter'[Min Restaurants Parameter], 20)
+		formatString: 0
+		lineageTag: 07c5fc79-ccb0-48d2-ad45-96495cf97d25
+
+	column 'Min Restaurants Parameter'
+		formatString: 0
+		lineageTag: fbf81125-5577-47d5-86b9-64c4418f840f
+		summarizeBy: none
+		sourceColumn: [Value]
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 0
+				}
+
+		annotation SummarizationSetBy = User
+
+	partition 'Min Restaurants Parameter' = calculated
+		mode: import
+		source = GENERATESERIES(5, 100, 5)
+
+	annotation PBI_Id = 3d52b08abf664d0381e6ae40af25c251
+

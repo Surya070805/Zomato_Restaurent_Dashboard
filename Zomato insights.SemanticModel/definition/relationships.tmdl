@@ -1,0 +1,57 @@
+relationship AutoDetected_ab03b077-1840-45c9-947b-dc3b158ef168
+	crossFilteringBehavior: bothDirections
+	fromColumn: bridge_restaurant_cuisine.restaurant_key
+	toColumn: dim_restaurant.restaurant_key
+
+relationship AutoDetected_63e485a7-4337-49a2-96e9-2e07113f6a61
+	fromColumn: bridge_restaurant_cuisine.cuisine_key
+	toColumn: dim_cuisine.cuisine_key
+
+relationship AutoDetected_ed6fcf4e-3a13-445f-a8f1-08fa91e83a0a
+	fromColumn: fact_restaurant_listing.restaurant_key
+	toColumn: dim_restaurant.restaurant_key
+
+relationship AutoDetected_99a2ab6a-3549-432b-84ca-5813f2eddffe
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: model_features.restaurant_key
+	toColumn: dim_restaurant.restaurant_key
+
+relationship AutoDetected_c393bd7f-e834-491f-8a73-2fd86c88d8ad
+	fromColumn: mart_market_opportunity.cuisine_name
+	toColumn: dim_cuisine.cuisine_name
+
+relationship AutoDetected_9e3a2008-374f-4e58-b88e-a83918ba43a4
+	fromColumn: fact_restaurant_listing.listing_type_key
+	toColumn: dim_listing_type.listing_type_key
+
+relationship AutoDetected_af3cd126-053c-438a-b4b4-58b7a9ba2db3
+	fromColumn: fact_restaurant_listing.location_key
+	toColumn: dim_location.location_key
+
+relationship AutoDetected_63e8b3e8-4f33-48b5-ba71-f0002997694e
+	fromColumn: mart_market_opportunity.location_name
+	toColumn: dim_location.location_name
+
+relationship AutoDetected_0d0aa53c-ebf6-4557-be1e-a1c15446fc74
+	isActive: false
+	fromColumn: model_features.location_name
+	toColumn: dim_location.location_name
+
+relationship AutoDetected_3362a208-67ff-44f7-8bb7-b62dcdb2c1b0
+	fromColumn: fact_restaurant_listing.price_band
+	toColumn: dim_price_band.price_band
+
+relationship AutoDetected_6472b8df-a86f-4774-b268-fb7835d158d4
+	fromColumn: mart_market_opportunity.price_band
+	toColumn: dim_price_band.price_band
+
+relationship AutoDetected_d51107f0-8f5c-4355-9fdc-6490bc2e39a2
+	fromColumn: fact_restaurant_listing.restaurant_type_key
+	toColumn: dim_restaurant_type.restaurant_type_key
+
+relationship AutoDetected_12fa627b-1b46-42d2-a082-907577b8b4e8
+	isActive: false
+	fromColumn: model_features.restaurant_type_name
+	toColumn: dim_restaurant_type.restaurant_type_name
+

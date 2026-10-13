@@ -1,0 +1,27 @@
+{
+  "target_definition": "High observed rating: rating >= 4.0 and vote_count >= 20.",
+  "selection_metric": "PR-AUC",
+  "best_model": "random_forest",
+  "train_rows": 7073,
+  "test_rows": 2358,
+  "mlflow_available": false,
+  "experiment": null,
+  "metrics": {
+    "logistic_regression": {
+      "roc_auc": 0.8207,
+      "pr_auc": 0.6493,
+      "accuracy": 0.7689,
+      "precision": 0.489,
+      "recall": 0.6711,
+      "f1": 0.5657
+    },
+    "random_forest": {
+      "roc_auc": 0.8324,
+      "pr_auc": 0.6753,
+      "accuracy": 0.8176,
+      "precision": 0.5898,
+      "recall": 0.6144,
+      "f1": 0.6019
+    }
+  }
+}

@@ -1,2 +1,11 @@
 zomato.csv
 zomato_cleaned.csv
+__pycache__/
+.jupyter_runtime/
+*.pyc
+desktop.ini
+node-compile-cache/
+.DS_Store
+*.tmp
+.idea/
+.vscode/

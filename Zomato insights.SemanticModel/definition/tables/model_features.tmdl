@@ -1,0 +1,102 @@
+table model_features
+	lineageTag: c67fe82f-a06b-4b94-97c5-78f426d79925
+
+	column restaurant_key
+		dataType: string
+		lineageTag: 622b0a7b-d686-4cb3-917b-ec7ea69975c0
+		summarizeBy: none
+		sourceColumn: restaurant_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column rating
+		dataType: double
+		lineageTag: db8b9fcc-b6af-4e45-bb2f-6d72168c8ce5
+		summarizeBy: sum
+		sourceColumn: rating
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column vote_count
+		dataType: int64
+		formatString: 0
+		lineageTag: dd8b819a-28fb-48c5-bf25-24b2bde4b066
+		summarizeBy: sum
+		sourceColumn: vote_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column cost_for_two
+		dataType: int64
+		formatString: 0
+		lineageTag: d4b0891e-a4ea-4f87-b1b1-57b059225d69
+		summarizeBy: sum
+		sourceColumn: cost_for_two
+
+		annotation SummarizationSetBy = Automatic
+
+	column location_name
+		dataType: string
+		lineageTag: 5f6a374b-3e60-498e-97aa-dba4a32a17ef
+		summarizeBy: none
+		sourceColumn: location_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column restaurant_type_name
+		dataType: string
+		lineageTag: 43a35def-a631-4f08-bc6b-15fdb5a214fe
+		summarizeBy: none
+		sourceColumn: restaurant_type_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column online_order_available
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 2870f529-de9f-42e6-bb3f-a9b8464428a3
+		summarizeBy: none
+		sourceColumn: online_order_available
+
+		annotation SummarizationSetBy = Automatic
+
+	column table_booking_available
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 14742dee-748d-4cf2-bd4b-973a95f7916c
+		summarizeBy: none
+		sourceColumn: table_booking_available
+
+		annotation SummarizationSetBy = Automatic
+
+	column cuisines
+		dataType: string
+		lineageTag: 81b58fe2-857c-43b7-a788-91119653f3da
+		summarizeBy: none
+		sourceColumn: cuisines
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_high_rated
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 8c4204df-b3e7-4503-be39-db7b6dced77d
+		summarizeBy: none
+		sourceColumn: is_high_rated
+
+		annotation SummarizationSetBy = Automatic
+
+	partition model_features = m
+		mode: import
+		source =
+				let
+				  Source = Csv.Document(File.Contents("C:\Users\23f20\Downloads\Zomato_Restaurent_Dashboard-main\Zomato_Restaurent_Dashboard-main\data\gold\model_features.csv"), [Delimiter = ",", Columns = 10, QuoteStyle = QuoteStyle.None]),
+				  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"restaurant_key", type text}, {"rating", type number}, {"vote_count", Int64.Type}, {"cost_for_two", Int64.Type}, {"location_name", type text}, {"restaurant_type_name", type text}, {"online_order_available", type logical}, {"table_booking_available", type logical}, {"cuisines", type text}, {"is_high_rated", type logical}}, "en-US")
+				in
+				  #"Changed column type"
+
+	annotation PBI_ResultType = Table
+

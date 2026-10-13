@@ -1,0 +1,150 @@
+{
+  "source": "zomato_cleaned.csv",
+  "profile": {
+    "row_count": 41418,
+    "column_count": 19,
+    "columns": [
+      "url",
+      "address",
+      "name",
+      "online_order",
+      "book_table",
+      "rate",
+      "votes",
+      "phone",
+      "location",
+      "rest_type",
+      "dish_liked",
+      "cuisines",
+      "approx_cost(for two people)",
+      "reviews_list",
+      "menu_item",
+      "listed_in(type)",
+      "listed_in(city)",
+      "rate_clean",
+      "cost_clean"
+    ],
+    "distinct_canonical_urls": 9431
+  },
+  "missingness": {
+    "url": {
+      "missing_rows": 0,
+      "missing_rate": 0.0
+    },
+    "address": {
+      "missing_rows": 0,
+      "missing_rate": 0.0
+    },
+    "name": {
+      "missing_rows": 0,
+      "missing_rate": 0.0
+    },
+    "online_order": {
+      "missing_rows": 0,
+      "missing_rate": 0.0
+    },
+    "book_table": {
+      "missing_rows": 0,
+      "missing_rate": 0.0
+    },
+    "rate": {
+      "missing_rows": 0,
+      "missing_rate": 0.0
+    },
+    "votes": {
+      "missing_rows": 0,
+      "missing_rate": 0.0
+    },
+    "phone": {
+      "missing_rows": 578,
+      "missing_rate": 1.4
+    },
+    "location": {
+      "missing_rows": 0,
+      "missing_rate": 0.0
+    },
+    "rest_type": {
+      "missing_rows": 147,
+      "missing_rate": 0.35
+    },
+    "dish_liked": {
+      "missing_rows": 18091,
+      "missing_rate": 43.68
+    },
+    "cuisines": {
+      "missing_rows": 8,
+      "missing_rate": 0.02
+    },
+    "approx_cost(for two people)": {
+      "missing_rows": 0,
+      "missing_rate": 0.0
+    },
+    "reviews_list": {
+      "missing_rows": 0,
+      "missing_rate": 0.0
+    },
+    "menu_item": {
+      "missing_rows": 0,
+      "missing_rate": 0.0
+    },
+    "listed_in(type)": {
+      "missing_rows": 0,
+      "missing_rate": 0.0
+    },
+    "listed_in(city)": {
+      "missing_rows": 0,
+      "missing_rate": 0.0
+    },
+    "rate_clean": {
+      "missing_rows": 0,
+      "missing_rate": 0.0
+    },
+    "cost_clean": {
+      "missing_rows": 0,
+      "missing_rate": 0.0
+    }
+  },
+  "numeric_summary": {
+    "rate_clean": {
+      "valid_rows": 41418,
+      "min": 1.8,
+      "median": 3.7,
+      "mean": 3.7,
+      "max": 4.9
+    },
+    "cost_clean": {
+      "valid_rows": 41418,
+      "min": 40.0,
+      "median": 500.0,
+      "mean": 603.27,
+      "max": 6000.0
+    },
+    "votes": {
+      "valid_rows": 41418,
+      "min": 0.0,
+      "median": 73.0,
+      "mean": 351.73,
+      "max": 16832.0
+    }
+  },
+  "quality_checks": {
+    "exact_duplicate_rows": 0,
+    "exact_duplicate_row_rate": 0.0,
+    "repeated_canonical_url_rows": 39953,
+    "repeated_canonical_url_row_rate": 96.46,
+    "invalid_rating_rows": 0,
+    "invalid_cost_rows": 0,
+    "negative_vote_rows": 0,
+    "malformed_numeric_values": {},
+    "unexpected_online_order_values": 0,
+    "unexpected_book_table_values": 0,
+    "online_order_values": {
+      "Yes": 27206,
+      "No": 14212
+    },
+    "book_table_values": {
+      "Yes": 6304,
+      "No": 35114
+    }
+  }
+}

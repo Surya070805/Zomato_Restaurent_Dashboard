@@ -1,0 +1,144 @@
+table fact_restaurant_listing
+	lineageTag: 1da2e7d4-7fd5-4b4f-812d-db422af0b9bc
+
+	column restaurant_key
+		dataType: string
+		isHidden
+		lineageTag: de1655c8-3777-4ec1-a709-371109c56826
+		summarizeBy: none
+		sourceColumn: restaurant_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column location_key
+		dataType: string
+		isHidden
+		lineageTag: ed530e14-04c5-4099-8adc-97d633e376aa
+		summarizeBy: none
+		sourceColumn: location_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column restaurant_type_key
+		dataType: string
+		isHidden
+		lineageTag: 846d3ebb-8023-478d-8b43-89ace4575c9e
+		summarizeBy: none
+		sourceColumn: restaurant_type_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column listing_type_key
+		dataType: string
+		isHidden
+		lineageTag: 60c14d34-b29f-46bd-a004-0cc655e07baa
+		summarizeBy: none
+		sourceColumn: listing_type_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column price_band
+		dataType: string
+		lineageTag: 7a12e357-a71b-4b28-ada7-b782b24c52af
+		summarizeBy: none
+		sourceColumn: price_band
+
+		annotation SummarizationSetBy = Automatic
+
+	column rating
+		dataType: double
+		lineageTag: f76376a6-eb9c-4f00-b447-920e2fe2e5c8
+		summarizeBy: sum
+		sourceColumn: rating
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column vote_count
+		dataType: int64
+		formatString: 0
+		lineageTag: c2084525-9ce2-4a66-aa0d-a6e29dba964b
+		summarizeBy: sum
+		sourceColumn: vote_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column cost_for_two
+		dataType: int64
+		formatString: 0
+		lineageTag: 98436572-0c6a-4407-8622-7825f4927a8a
+		summarizeBy: sum
+		sourceColumn: cost_for_two
+
+		annotation SummarizationSetBy = Automatic
+
+	column online_order_available
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: d7a13505-088c-4f5e-9130-457be2422480
+		summarizeBy: none
+		sourceColumn: online_order_available
+
+		annotation SummarizationSetBy = Automatic
+
+	column table_booking_available
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 47e5e336-fed2-4724-af2e-70b2872e94ca
+		summarizeBy: none
+		sourceColumn: table_booking_available
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_high_rated
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 614c14a9-4529-4532-932c-8ee1807b8e6e
+		summarizeBy: none
+		sourceColumn: is_high_rated
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Service Combination' =
+			IF ( fact_restaurant_listing[online_order_available], "Online", "No online" )
+			    & " + "
+			    & IF ( fact_restaurant_listing[table_booking_available], "Booking", "No booking" )
+		dataType: string
+		lineageTag: 22526f20-129e-4653-8ad0-0bfdbf559d38
+
+	column 'Online Order Status' = IF ( fact_restaurant_listing[online_order_available], "Yes", "No" )
+		dataType: string
+		lineageTag: e8f5c3a1-7711-409b-9801-b203c73919e1
+		summarizeBy: none
+
+	column 'Table Booking Status' = IF ( fact_restaurant_listing[table_booking_available], "Yes", "No" )
+		dataType: string
+		lineageTag: a7b6c5d4-e3f2-41a0-9876-c5d4e3f2a1b0
+		summarizeBy: none
+
+	column 'Service Channel' =
+			IF ( fact_restaurant_listing[online_order_available], "Online", "No Online" )
+			    & " + "
+			    & IF ( fact_restaurant_listing[table_booking_available], "Booking", "No Booking" )
+		dataType: string
+		lineageTag: 33526f20-129e-4653-8ad0-0bfdbf559d39
+		summarizeBy: none
+
+	column 'Booking Availability Label' = IF ( fact_restaurant_listing[table_booking_available], "With Booking", "Without Booking" )
+		dataType: string
+		lineageTag: 55526f20-129e-4653-8ad0-0bfdbf559d41
+		summarizeBy: none
+
+	partition fact_restaurant_listing = m
+		mode: import
+		source =
+				let
+				  Source = Csv.Document(File.Contents("C:\Users\23f20\Downloads\Zomato_Restaurent_Dashboard-main\Zomato_Restaurent_Dashboard-main\data\gold\fact_restaurant_listing.csv"), [Delimiter = ",", Columns = 11, QuoteStyle = QuoteStyle.None]),
+				  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"restaurant_key", type text}, {"location_key", type text}, {"restaurant_type_key", type text}, {"listing_type_key", type text}, {"price_band", type text}, {"rating", type number}, {"vote_count", Int64.Type}, {"cost_for_two", Int64.Type}, {"online_order_available", type logical}, {"table_booking_available", type logical}, {"is_high_rated", type logical}}, "en-US")
+				in
+				  #"Changed column type"
+
+	annotation PBI_ResultType = Table
+

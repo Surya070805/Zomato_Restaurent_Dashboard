@@ -1,0 +1,51 @@
+table 'Sort By'
+	lineageTag: d2283dbb-4685-4e6c-8261-c68aa3c95903
+
+	column 'Sort By'
+		lineageTag: 7e81ba24-7147-4e1f-9e0b-38e6a251d9ba
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Sort By Order'
+
+		relatedColumnDetails
+			groupByColumn: 'Sort By Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sort By Fields'
+		isHidden
+		lineageTag: f68a11a9-fc90-42ab-9306-e2b32bdf9b7a
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Sort By Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sort By Order'
+		isHidden
+		formatString: 0
+		lineageTag: d105f835-2f0f-40cc-9d56-c579056b1e46
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Sort By' = calculated
+		mode: import
+		source =
+				{
+				    ("Locality Attractiveness", NAMEOF('_Measures'[Locality Attractiveness]), 0),
+				    ("Restaurant Rating", NAMEOF('_Measures'[Restaurant Rating]), 1),
+				    ("Restaurant Count", NAMEOF('_Measures'[Restaurant Count]), 2),
+				    ("Average Votes per Restaurant", NAMEOF('_Measures'[Average Votes per Restaurant]), 3),
+				    ("Trusted High Rated Share", NAMEOF('_Measures'[Trusted High Rated Share]), 4)
+				}
+
+	annotation PBI_Id = 6409afe213dd4d82a1d3cc990740ac0e
+

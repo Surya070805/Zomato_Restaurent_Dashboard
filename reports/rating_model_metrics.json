@@ -1,0 +1,31 @@
+{
+  "target_definition": "High observed rating: rating >= 4.0 and vote_count >= 20.",
+  "feature_exclusions": [
+    "vote_count is excluded because it is part of the target eligibility rule.",
+    "restaurant name, URL, address, review text, and dish text are excluded to avoid identity or post-outcome leakage."
+  ],
+  "train_rows": 7073,
+  "test_rows": 2358,
+  "positive_rate_train": 0.2231,
+  "positive_rate_test": 0.2243,
+  "selection_metric": "PR-AUC",
+  "best_model": "random_forest",
+  "metrics": {
+    "logistic_regression": {
+      "roc_auc": 0.8207,
+      "pr_auc": 0.6493,
+      "accuracy": 0.7689,
+      "precision": 0.489,
+      "recall": 0.6711,
+      "f1": 0.5657
+    },
+    "random_forest": {
+      "roc_auc": 0.8324,
+      "pr_auc": 0.6753,
+      "accuracy": 0.8176,
+      "precision": 0.5898,
+      "recall": 0.6144,
+      "f1": 0.6019
+    }
+  }
+}

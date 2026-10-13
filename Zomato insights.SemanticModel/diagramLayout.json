@@ -1,0 +1,191 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 943,
+            "y": 437
+          },
+          "nodeIndex": "zomato_cleaned",
+          "nodeLineageTag": "0f4ecaa1-f037-439b-a673-423c8db29fce",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 284,
+            "y": 50
+          },
+          "nodeIndex": "Cuisine_Stats",
+          "nodeLineageTag": "fee8f6e4-fa48-46e7-a47a-4ce4bdbbde5c",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 180
+          },
+          "nodeIndex": "bridge_restaurant_cuisine",
+          "nodeLineageTag": "d227d7ec-5dc3-4de5-a8bc-f29776fc6419",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 384,
+            "y": 0
+          },
+          "nodeIndex": "dim_cuisine",
+          "nodeLineageTag": "7b31f70e-f001-4d11-88aa-e110cfdef9b9",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 97,
+            "y": 455
+          },
+          "nodeIndex": "dim_listing_type",
+          "nodeLineageTag": "4f87b96f-9136-48eb-88ae-0d0c54ba633a",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 467,
+            "y": 469
+          },
+          "nodeIndex": "dim_location",
+          "nodeLineageTag": "b9cc3a5b-f9b6-4e09-b74f-1303e0d5ef1e",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 316
+          },
+          "nodeIndex": "dim_price_band",
+          "nodeLineageTag": "cb74227c-c2c8-4216-8335-30eb75682ca1",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "nodeIndex": "dim_restaurant",
+          "nodeLineageTag": "0afd41c2-befa-44fe-acd4-d0f8d5c8029c",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 640.88027526426617,
+            "y": 0
+          },
+          "nodeIndex": "dim_restaurant_type",
+          "nodeLineageTag": "d9f5ab6a-90a9-4e66-9ce5-cfd719ee80d3",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 699.88027526426617,
+            "y": 109
+          },
+          "nodeIndex": "fact_restaurant_listing",
+          "nodeLineageTag": "1da2e7d4-7fd5-4b4f-812d-db422af0b9bc",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 670.88027526426617,
+            "y": 346
+          },
+          "nodeIndex": "mart_market_opportunity",
+          "nodeLineageTag": "d38bbffc-87c5-4f52-b1a6-7e3a9998c0a9",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 901.88027526426617,
+            "y": 17
+          },
+          "nodeIndex": "model_features",
+          "nodeLineageTag": "c67fe82f-a06b-4b94-97c5-78f426d79925",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1110.9803313514053,
+            "y": 373
+          },
+          "nodeIndex": "gold",
+          "nodeLineageTag": "72d0a408-0a97-45a5-9afe-d8db1f021748",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

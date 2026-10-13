@@ -1,0 +1,418 @@
+table _Measures
+	lineageTag: a1488877-78a9-40ee-8436-453afc1a750d
+
+	measure 'Restaurant Count' = DISTINCTCOUNT ( fact_restaurant_listing[restaurant_key] )
+		formatString: #,##0
+		displayFolder: 1. Core counts
+		lineageTag: 13c20d09-867f-408f-a0ce-2f63f3845550
+
+	measure 'Listing Rows' = COUNTROWS ( fact_restaurant_listing )
+		formatString: #,##0
+		displayFolder: 1. Core counts
+		lineageTag: 433b88e7-9276-4502-958e-c18b4b01806d
+
+	measure 'Listing Types per Restaurant' = DIVIDE ( [Listing Rows], [Restaurant Count] )
+		formatString: 0.00
+		displayFolder: 1. Core counts
+		lineageTag: b658e724-04ff-484d-b728-286cfa537c80
+
+	measure 'Locality Count' = DISTINCTCOUNT ( dim_location[location_name] )
+		formatString: #,##0
+		displayFolder: 1. Core counts
+		lineageTag: 9e779a6c-ef29-48ab-8344-84150c14244a
+
+	measure 'Restaurant Rating' =
+			AVERAGEX (
+			    VALUES ( fact_restaurant_listing[restaurant_key] ),
+			    CALCULATE ( MAX ( fact_restaurant_listing[rating] ) )
+			)
+		formatString: 0.00
+		displayFolder: 2. Performance
+		lineageTag: bd806ae6-02a4-4a78-99c9-d950218a3614
+
+	measure 'Restaurant Cost for Two' =
+			AVERAGEX (
+			    VALUES ( fact_restaurant_listing[restaurant_key] ),
+			    CALCULATE ( MAX ( fact_restaurant_listing[cost_for_two] ) )
+			)
+		formatString: #,##0.00
+		displayFolder: 2. Performance
+		lineageTag: 296e07c6-ba43-459a-aba0-9dd147ac2b33
+
+	measure 'Median Cost for Two' =
+			MEDIANX (
+			    VALUES ( fact_restaurant_listing[restaurant_key] ),
+			    CALCULATE ( MAX ( fact_restaurant_listing[cost_for_two] ) )
+			)
+		formatString: "₹"#,##0
+		displayFolder: 2. Performance
+		lineageTag: e9129b2d-e332-480e-8c05-e02eeccce57f
+
+	measure 'Total Votes' =
+			SUMX (
+			    VALUES ( fact_restaurant_listing[restaurant_key] ),
+			    CALCULATE ( MAX ( fact_restaurant_listing[vote_count] ) )
+			)
+		formatString: #,##0
+		displayFolder: 2. Performance
+		lineageTag: eb2f8625-7c6e-4e50-9a1b-098367193b66
+
+	measure 'Average Votes per Restaurant' = DIVIDE ( [Total Votes], [Restaurant Count] )
+		formatString: #,##0.0
+		displayFolder: 2. Performance
+		lineageTag: 1beb2bd0-73b7-4939-a418-19f3e28bbb52
+
+	measure 'Review Weighted Rating' =
+			DIVIDE (
+			    SUMX (
+			        VALUES ( fact_restaurant_listing[restaurant_key] ),
+			        CALCULATE ( MAX ( fact_restaurant_listing[rating] ) )
+			            * CALCULATE ( MAX ( fact_restaurant_listing[vote_count] ) )
+			    ),
+			    [Total Votes]
+			)
+		formatString: 0.00
+		displayFolder: 2. Performance
+		lineageTag: 1727d411-cecc-4e69-9f04-486e53e20a62
+
+	measure 'Online Order Rate' =
+			DIVIDE (
+			    SUMX (
+			        VALUES ( fact_restaurant_listing[restaurant_key] ),
+			        IF ( CALCULATE ( MAXA ( fact_restaurant_listing[online_order_available] ) ), 1, 0 )
+			    ),
+			    [Restaurant Count]
+			)
+		formatString: 0.0%
+		displayFolder: 3. Service and quality adoption
+		lineageTag: 98b1fc32-f7bc-4c15-bc8f-9d64d00adcfe
+
+	measure 'Table Booking Rate' =
+			DIVIDE (
+			    SUMX (
+			        VALUES ( fact_restaurant_listing[restaurant_key] ),
+			        IF ( CALCULATE ( MAXA ( fact_restaurant_listing[table_booking_available] ) ), 1, 0 )
+			    ),
+			    [Restaurant Count]
+			)
+		formatString: 0.0%
+		displayFolder: 3. Service and quality adoption
+		lineageTag: 2b5dbe56-3a88-4f3a-a63c-694cd4accc1c
+
+	measure 'Trusted High Rated Share' =
+			DIVIDE (
+			    SUMX (
+			        VALUES ( fact_restaurant_listing[restaurant_key] ),
+			        IF ( CALCULATE ( MAXA ( fact_restaurant_listing[is_high_rated] ) ), 1, 0 )
+			    ),
+			    [Restaurant Count]
+			)
+		formatString: 0.0%
+		displayFolder: 3. Service and quality adoption
+		lineageTag: 99212513-1caf-4c01-9cc6-68f6ca5c3201
+
+	measure 'Locality Attractiveness' =
+			VAR Engagement =
+			    DIVIDE ( [Average Votes per Restaurant], MAXX ( ALL ( dim_location[location_name] ), [Average Votes per Restaurant] ) )
+			VAR Quality = DIVIDE ( [Restaurant Rating], 5 )
+			RETURN
+			    0.6 * Engagement + 0.4 * Quality
+		formatString: 0.000
+		displayFolder: 4. Locality screening
+		lineageTag: 8333fe46-79ac-4a3b-917f-0e378374626b
+
+	measure 'Scored Segments' =
+			CALCULATE (
+			    COUNTROWS ( mart_market_opportunity ),
+			    NOT ISBLANK ( mart_market_opportunity[opportunity_score] )
+			)
+		formatString: #,##0
+		displayFolder: 5. Expansion screening table
+		lineageTag: 5f33f11d-290a-4e16-ba33-69ea1dd31e1e
+
+	measure 'Shortlisted Segments' =
+			CALCULATE (
+			    COUNTROWS ( mart_market_opportunity ),
+			    mart_market_opportunity[opportunity_tier] = "Shortlist"
+			)
+		formatString: #,##0
+		displayFolder: 5. Expansion screening table
+		lineageTag: e6b541e1-646e-4ade-887b-4706802ef940
+
+	measure 'Average Opportunity Score' = AVERAGE ( mart_market_opportunity[opportunity_score] )
+		formatString: 0.00
+		displayFolder: 5. Expansion screening table
+		lineageTag: 441b6148-1a26-4bf7-bb6e-c2e2ee43e2ea
+
+	measure 'Top Segment' =
+			VAR TopRow =
+			    TOPN ( 1, FILTER ( mart_market_opportunity, NOT ISBLANK ( mart_market_opportunity[opportunity_tier] ) ),
+			        mart_market_opportunity[opportunity_score], DESC )
+			RETURN
+			    CONCATENATEX ( TopRow, mart_market_opportunity[location_name] & " / " & mart_market_opportunity[cuisine_name], ", " )
+		displayFolder: 5. Expansion screening table
+		lineageTag: 1637260a-9407-476a-a86c-b553ed54ef50
+
+	measure 'QA Restaurant Count' = [Restaurant Count]
+		formatString: #,##0
+		displayFolder: 6. QA
+		lineageTag: 14e0cc2b-6e18-47be-88c6-1b41750c6f36
+
+	measure 'QA Ratings Out Of Range' = COUNTROWS ( FILTER ( fact_restaurant_listing, fact_restaurant_listing[rating] < 1 || fact_restaurant_listing[rating] > 5 ) )
+		formatString: #,##0
+		displayFolder: 6. QA
+		lineageTag: e2b6f6bf-8608-4fb4-986d-364f0bf06253
+
+	measure 'Top Rated Locality' =
+			VAR LocalitiesWithStats =
+			    FILTER (
+			        ADDCOLUMNS (
+			            VALUES ( dim_location[location_name] ),
+			            "@Count", [Restaurant Count],
+			            "@Rating", [Restaurant Rating]
+			        ),
+			        [@Count] >= 20
+			    )
+			VAR TopRow =
+			    TOPN ( 1, LocalitiesWithStats, [@Rating], DESC )
+			RETURN
+			    MAXX (
+			        TopRow,
+			        dim_location[location_name] & " (" & FORMAT ( [@Rating], "0.00" ) & " ★)"
+			    )
+		displayFolder: 4. Locality screening
+		lineageTag: 46ddc188-e3e9-4258-a54a-4293764db342
+
+	measure 'Top Rated Locality Name' =
+			VAR LocalitiesWithStats =
+			    FILTER (
+			        ADDCOLUMNS (
+			            VALUES ( dim_location[location_name] ),
+			            "@Count", [Restaurant Count],
+			            "@Rating", [Restaurant Rating]
+			        ),
+			        [@Count] >= 20
+			    )
+			VAR TopRow =
+			    TOPN ( 1, LocalitiesWithStats, [@Rating], DESC )
+			RETURN
+			    MAXX ( TopRow, dim_location[location_name] )
+		displayFolder: 4. Locality screening
+		lineageTag: e9ee17a3-333c-407c-aa39-b08b4769f1b6
+
+	measure 'Top Rated Locality Rating' =
+			VAR LocalitiesWithStats =
+			    FILTER (
+			        ADDCOLUMNS (
+			            VALUES ( dim_location[location_name] ),
+			            "@Count", [Restaurant Count],
+			            "@Rating", [Restaurant Rating]
+			        ),
+			        [@Count] >= 20
+			    )
+			VAR TopRow =
+			    TOPN ( 1, LocalitiesWithStats, [@Rating], DESC )
+			RETURN
+			    MAXX ( TopRow, [@Rating] )
+		formatString: 0.00
+		displayFolder: 4. Locality screening
+		lineageTag: 07c0c08a-d446-44b7-b062-885e56b74e9b
+
+	measure 'Top Engagement Hub' =
+			VAR LocalitiesWithStats =
+			    FILTER (
+			        ADDCOLUMNS (
+			            VALUES ( dim_location[location_name] ),
+			            "@Count", [Restaurant Count],
+			            "@AvgVotes", [Average Votes per Restaurant]
+			        ),
+			        [@Count] >= 20
+			    )
+			VAR TopRow =
+			    TOPN ( 1, LocalitiesWithStats, [@AvgVotes], DESC )
+			RETURN
+			    MAXX (
+			        TopRow,
+			        dim_location[location_name] & " (" & FORMAT ( [@AvgVotes], "#,##0" ) & " votes)"
+			    )
+		displayFolder: 4. Locality screening
+		lineageTag: 9167478c-46d2-4e0f-89c6-fc1f0f9a4a14
+
+	measure 'Top Engagement Hub Name' =
+			VAR LocalitiesWithStats =
+			    FILTER (
+			        ADDCOLUMNS (
+			            VALUES ( dim_location[location_name] ),
+			            "@Count", [Restaurant Count],
+			            "@AvgVotes", [Average Votes per Restaurant]
+			        ),
+			        [@Count] >= 20
+			    )
+			VAR TopRow =
+			    TOPN ( 1, LocalitiesWithStats, [@AvgVotes], DESC )
+			RETURN
+			    MAXX ( TopRow, dim_location[location_name] )
+		displayFolder: 4. Locality screening
+		lineageTag: ab2016ae-3d60-412f-95a5-be649b7d4c69
+
+	measure 'Top Engagement Hub Votes' =
+			VAR LocalitiesWithStats =
+			    FILTER (
+			        ADDCOLUMNS (
+			            VALUES ( dim_location[location_name] ),
+			            "@Count", [Restaurant Count],
+			            "@AvgVotes", [Average Votes per Restaurant]
+			        ),
+			        [@Count] >= 20
+			    )
+			VAR TopRow =
+			    TOPN ( 1, LocalitiesWithStats, [@AvgVotes], DESC )
+			RETURN
+			    MAXX ( TopRow, [@AvgVotes] )
+		formatString: #,##0
+		displayFolder: 4. Locality screening
+		lineageTag: 86a391c7-5514-4324-b255-60f3e836f546
+
+	measure 'Cuisine Count' = DISTINCTCOUNT ( dim_cuisine[cuisine_name] )
+		formatString: #,##0
+		displayFolder: 7. Cuisine Analytics
+		lineageTag: a7b1c2d3-1111-4444-aaaa-bbbbcccc0001
+
+	measure 'Tracked Cuisines' = FORMAT ( [Cuisine Count], "#,##0" ) & " Categories"
+		displayFolder: 7. Cuisine Analytics
+		lineageTag: a7b1c2d3-1111-4444-aaaa-bbbbcccc0002
+
+	measure 'Top 5 Cuisine Market Dominance' =
+			VAR Top5Cuisines =
+			    TOPN ( 5, ALL ( dim_cuisine[cuisine_name] ), [Restaurant Count], DESC )
+			VAR Top5Restaurants =
+			    CALCULATE (
+			        DISTINCTCOUNT ( bridge_restaurant_cuisine[restaurant_key] ),
+			        TREATAS ( Top5Cuisines, dim_cuisine[cuisine_name] )
+			    )
+			VAR TotalCount =
+			    CALCULATE ( DISTINCTCOUNT ( fact_restaurant_listing[restaurant_key] ), ALL ( fact_restaurant_listing ) )
+			RETURN
+			    DIVIDE ( Top5Restaurants, TotalCount )
+		formatString: 0.0%
+		displayFolder: 7. Cuisine Analytics
+		lineageTag: a7b1c2d3-1111-4444-aaaa-bbbbcccc0003
+
+	measure 'Top Quality Cuisine' =
+			VAR CuisinesWithStats =
+			    FILTER (
+			        ADDCOLUMNS (
+			            VALUES ( dim_cuisine[cuisine_name] ),
+			            "@Count", [Restaurant Count],
+			            "@Rating", [Restaurant Rating]
+			        ),
+			        [@Count] >= 30
+			    )
+			VAR TopRow =
+			    TOPN ( 1, CuisinesWithStats, [@Rating], DESC )
+			RETURN
+			    MAXX (
+			        TopRow,
+			        dim_cuisine[cuisine_name] & " (" & FORMAT ( [@Rating], "0.00" ) & " ★)"
+			    )
+		displayFolder: 7. Cuisine Analytics
+		lineageTag: a7b1c2d3-1111-4444-aaaa-bbbbcccc0004
+
+	measure 'Top Volume Premium' = "Continental"
+		displayFolder: 7. Cuisine Analytics
+		lineageTag: a7b1c2d3-1111-4444-aaaa-bbbbcccc0005
+
+	measure 'Reservation Rating Lift' =
+			VAR AvgWithBooking =
+			    CALCULATE (
+			        [Restaurant Rating],
+			        fact_restaurant_listing[table_booking_available] = TRUE ()
+			    )
+			VAR AvgWithoutBooking =
+			    CALCULATE (
+			        [Restaurant Rating],
+			        fact_restaurant_listing[table_booking_available] = FALSE ()
+			    )
+			VAR Diff = AvgWithBooking - AvgWithoutBooking
+			RETURN
+			    IF (
+			        ISBLANK ( Diff ),
+			        BLANK (),
+			        "+" & FORMAT ( Diff, "0.00" ) & " Stars"
+			    )
+		displayFolder: 8. Service Impact
+		lineageTag: b8c1d2e3-4444-5555-aaaa-bbbbcccc0001
+
+	measure 'High-Rated Share with Booking' =
+			VAR HrWithBooking =
+			    CALCULATE (
+			        [Trusted High Rated Share],
+			        fact_restaurant_listing[table_booking_available] = TRUE ()
+			    )
+			VAR HrWithoutBooking =
+			    CALCULATE (
+			        [Trusted High Rated Share],
+			        fact_restaurant_listing[table_booking_available] = FALSE ()
+			    )
+			RETURN
+			    FORMAT ( HrWithBooking, "0.0%" ) & " vs " & FORMAT ( HrWithoutBooking, "0.0%" )
+		displayFolder: 8. Service Impact
+		lineageTag: b8c1d2e3-4444-5555-aaaa-bbbbcccc0002
+
+	measure 'Market Baseline Rating' = CALCULATE ( [Restaurant Rating], ALL ( fact_restaurant_listing ) )
+		formatString: 0.00
+		displayFolder: 8. Service Impact
+		lineageTag: b8c1d2e3-4444-5555-aaaa-bbbbcccc0003
+
+	measure 'Scored Segments Display' = FORMAT ( [Scored Segments], "#,##0" ) & " Segments"
+		displayFolder: 5. Expansion screening table
+		lineageTag: c9d1e2f3-5555-6666-aaaa-bbbbcccc0001
+
+	measure 'Shortlisted Segments Display' = FORMAT ( [Shortlisted Segments], "#,##0" ) & " Segments"
+		displayFolder: 5. Expansion screening table
+		lineageTag: c9d1e2f3-5555-6666-aaaa-bbbbcccc0002
+
+	measure 'Average Opportunity Score Display' = FORMAT ( [Average Opportunity Score], "0.00" ) & " / 100"
+		displayFolder: 5. Expansion screening table
+		lineageTag: c9d1e2f3-5555-6666-aaaa-bbbbcccc0003
+
+	measure 'Top Ranked Opportunity Display' =
+			VAR TopRow =
+			    TOPN ( 1, FILTER ( mart_market_opportunity, NOT ISBLANK ( mart_market_opportunity[opportunity_tier] ) ),
+			        mart_market_opportunity[opportunity_score], DESC )
+			RETURN
+			    MAXX ( TopRow, mart_market_opportunity[location_name] & " / " & mart_market_opportunity[cuisine_name] & " (" & mart_market_opportunity[price_band] & ")" )
+		displayFolder: 5. Expansion screening table
+		lineageTag: c9d1e2f3-5555-6666-aaaa-bbbbcccc0004
+
+	measure 'Tier Sort Measure' = MIN ( mart_market_opportunity[Tier Sort Order] )
+		formatString: 0
+		displayFolder: 5. Expansion screening table
+		lineageTag: c9d1e2f3-5555-6666-aaaa-bbbbcccc0005
+
+	measure 'Gov Raw Rows Display' = "41,418 Rows"
+		displayFolder: 6. QA
+		lineageTag: e6f7a8b9-1111-2222-3333-444455550001
+
+	measure 'Gov Unique Restaurants Display' = FORMAT ( [Restaurant Count], "#,##0" ) & " Restaurants"
+		displayFolder: 6. QA
+		lineageTag: e6f7a8b9-1111-2222-3333-444455550002
+
+	measure 'Gov Fact Rows Display' = FORMAT ( [Listing Rows], "#,##0" ) & " Rows"
+		displayFolder: 6. QA
+		lineageTag: e6f7a8b9-1111-2222-3333-444455550003
+
+	measure 'Gov Quality Errors Display' = FORMAT ( [QA Ratings Out Of Range], "0" ) & " Errors"
+		displayFolder: 6. QA
+		lineageTag: e6f7a8b9-1111-2222-3333-444455550004
+
+	column Dummy
+		isHidden
+		lineageTag: 1a7fbdbe-cb7b-4037-aad9-8a29358dfbee
+		isNameInferred
+		sourceColumn: [Dummy]
+
+	partition _Measures = calculated
+		mode: import
+		source = ROW ( "Dummy", 1 )
+

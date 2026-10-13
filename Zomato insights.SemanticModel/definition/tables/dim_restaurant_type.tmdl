@@ -1,0 +1,31 @@
+table dim_restaurant_type
+	lineageTag: d9f5ab6a-90a9-4e66-9ce5-cfd719ee80d3
+
+	column restaurant_type_key
+		dataType: string
+		isHidden
+		lineageTag: 35322b3f-58c0-4107-b74c-4ce4abb0f8f0
+		summarizeBy: none
+		sourceColumn: restaurant_type_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column restaurant_type_name
+		dataType: string
+		lineageTag: 370a2634-d16f-4cdb-a872-ac0cf03d5a20
+		summarizeBy: none
+		sourceColumn: restaurant_type_name
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_restaurant_type = m
+		mode: import
+		source =
+				let
+				  Source = Csv.Document(File.Contents("C:\Users\23f20\Downloads\Zomato_Restaurent_Dashboard-main\Zomato_Restaurent_Dashboard-main\data\gold\dim_restaurant_type.csv"), [Delimiter = ",", Columns = 2, QuoteStyle = QuoteStyle.None]),
+				  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true])
+				in
+				  #"Promoted headers"
+
+	annotation PBI_ResultType = Table
+

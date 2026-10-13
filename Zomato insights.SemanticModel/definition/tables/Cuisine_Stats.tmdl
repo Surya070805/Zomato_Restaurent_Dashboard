@@ -1,0 +1,89 @@
+table Cuisine_Stats
+	lineageTag: fee8f6e4-fa48-46e7-a47a-4ce4bdbbde5c
+
+	column cuisines
+		dataType: string
+		lineageTag: ff8873c8-e42a-4aeb-8bb1-d3e2f815d4bc
+		summarizeBy: none
+		sourceColumn: cuisines
+
+		annotation SummarizationSetBy = Automatic
+
+	column location
+		dataType: string
+		lineageTag: 5fec3b56-0205-4905-bd24-93ea154d2833
+		summarizeBy: none
+		sourceColumn: location
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total Votes'
+		dataType: double
+		lineageTag: 2cd49901-9600-4c09-972a-8cfb749a4a4c
+		summarizeBy: sum
+		sourceColumn: Total Votes
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Avg Rating'
+		dataType: double
+		lineageTag: a7a41d98-2562-4526-982f-e638d7ecdb37
+		summarizeBy: sum
+		sourceColumn: Avg Rating
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Restaurant count'
+		dataType: int64
+		formatString: 0
+		lineageTag: 62f3f922-948a-41ea-8828-acf33f4959f6
+		summarizeBy: sum
+		sourceColumn: Restaurant count
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Popularity Score' = ```
+			[Total Votes] *[Avg Rating]
+			
+			```
+		lineageTag: 71bb4495-a4d4-4190-8cd2-32cbcce7ada6
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Cuisine_Stats = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\23f20\Downloads\Pyspark project\zomato_cleaned.csv"),[Delimiter=",", Columns=19, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"url", type text}, {"address", type text}, {"name", type text}, {"online_order", type text}, {"book_table", type text}, {"rate", type text}, {"votes", Int64.Type}, {"phone", type text}, {"location", type text}, {"rest_type", type text}, {"dish_liked", type text}, {"cuisines", type text}, {"approx_cost(for two people)", Int64.Type}, {"reviews_list", type text}, {"menu_item", type text}, {"listed_in(type)", type text}, {"listed_in(city)", type text}, {"rate_clean", type number}, {"cost_clean", Int64.Type}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"url", "address", "menu_item"}),
+				    #"Added Custom" = Table.AddColumn(#"Removed Columns", "review_raw", each Text.Replace(Text.Replace(Text.Replace([reviews_list], "[", ""), "]", ""), """", "")
+				[reviews_list]),
+				    #"Filtered Rows" = Table.SelectRows(#"Added Custom", each true),
+				    #"Removed Columns1" = Table.RemoveColumns(#"Filtered Rows",{"review_raw"}),
+				    #"Added Custom1" = Table.AddColumn(#"Removed Columns1", "review_rating", each try Text.Replace(Text.Replace(Text.Replace(Text.From([reviews_list]), "[", ""), "]", ""), """", "") otherwise null),
+				    #"Renamed Columns" = Table.RenameColumns(#"Added Custom1",{{"review_rating", "review_raw"}}),
+				    #"Added Custom2" = Table.AddColumn(#"Renamed Columns", "review_rating", each try Number.From(Text.BetweenDelimiters([review_raw], "Rated ", ",")) otherwise null),
+				    #"Removed Columns2" = Table.RemoveColumns(#"Added Custom2",{"review_rating"}),
+				    #"Added Custom3" = Table.AddColumn(#"Removed Columns2", "review_rating", each try Number.FromText(Text.BetweenDelimiters([review_raw], "Rated ", "'")) otherwise null),
+				    #"Removed Columns3" = Table.RemoveColumns(#"Added Custom3",{"review_raw"}),
+				    #"Added Custom4" = Table.AddColumn(#"Removed Columns3", "review_text", each try Text.AfterDelimiter([review_raw], "RATED\n ") otherwise null),
+				    #"Removed Columns4" = Table.RemoveColumns(#"Added Custom4",{"review_text", "listed_in(type)", "reviews_list", "approx_cost(for two people)", "dish_liked", "rest_type", "listed_in(city)", "phone", "rate", "name", "book_table", "online_order"}),
+				    #"Split Column by Delimiter" = Table.ExpandListColumn(Table.TransformColumns(#"Removed Columns4", {{"cuisines", Splitter.SplitTextByDelimiter(",", QuoteStyle.None), let itemType = (type nullable text) meta [Serialized.Text = true] in type {itemType}}}), "cuisines"),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Split Column by Delimiter",{{"cuisines", type text}, {"review_rating", type number}}),
+				    #"Grouped Rows" = Table.Group(#"Changed Type1", {"cuisines", "location"}, {{"Total Votes", each List.Sum([votes]), type nullable number}, {"Avg Rating", each List.Average([rate_clean]), type nullable number}, {"Restaurant count", each Table.RowCount(_), Int64.Type}})
+				in
+				    #"Grouped Rows"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

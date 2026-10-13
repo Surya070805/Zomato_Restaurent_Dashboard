@@ -1,0 +1,34 @@
+table dim_price_band
+	lineageTag: cb74227c-c2c8-4216-8335-30eb75682ca1
+
+	column price_band
+		dataType: string
+		lineageTag: 1b118de6-5b93-47c0-a027-8baf6f27d52f
+		summarizeBy: none
+		sourceColumn: price_band
+		sortByColumn: price_band_sort
+
+		annotation SummarizationSetBy = Automatic
+
+	column price_band_sort
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 2d7ba517-93a1-4a1e-a54c-0a503cabc48c
+		summarizeBy: sum
+		sourceColumn: price_band_sort
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_price_band = m
+		mode: import
+		source =
+				let
+				  Source = Csv.Document(File.Contents("C:\Users\23f20\Downloads\Zomato_Restaurent_Dashboard-main\Zomato_Restaurent_Dashboard-main\data\gold\dim_price_band.csv"), [Delimiter = ",", Columns = 2, QuoteStyle = QuoteStyle.None]),
+				  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"price_band", type text}, {"price_band_sort", Int64.Type}}, "en-US")
+				in
+				  #"Changed column type"
+
+	annotation PBI_ResultType = Table
+
